@@ -11,7 +11,7 @@ It uses :
 Works in :
 
 - Firefox 3.6
-- IE 7
+- IE 6, 7
 - Chromium
 
 Doesn't work in :
