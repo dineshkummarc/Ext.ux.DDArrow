@@ -7,3 +7,13 @@ It uses :
 - ExtJS
 - RaphaelJS
 - http://taitems.tumblr.com/post/549973287/drawing-arrows-in-raphaeljs
+
+Works in :
+
+- Firefox 3.6
+- IE 6, 7
+- Chromium
+
+Doesn't work in :
+
+- Opera ( http://twitter.com/Zerogiven/status/12942833609 )
