@@ -3,16 +3,16 @@ Ext.onReady(function(){
 
     var books = {
         records : [{
-            title : "Ext JS in Action",
+            title  : "Ext JS in Action",
             author : "Jesus D. Garcia, Jr."
         },{
-            title : "Learning Ext JS",
+            title  : "Learning Ext JS",
             author : "Shea Frederick, Colin Ramsay, Steve “Cutter” Blades"
         },{
-            title : "Ext JS Projects with Gears",
+            title  : "Ext JS Projects with Gears",
             author : "Frank Zammetti"
         },{
-            title : "Ext JS 3.0 Cookbook",
+            title  : "Ext JS 3.0 Cookbook",
             author : "Jorge Ramon"
         }]
     };
@@ -23,24 +23,34 @@ Ext.onReady(function(){
     ];
 
     var arrowPlugin = new Ext.ux.DDArrow({
-        strokeWidth : 3,
-        arrowWidth  : 8,
-        color       : 'green'
+        arrowWidth  : 5,
+        arrowStyle : {//ugly arrow
+            'fill'         : 'yellow',
+            'stroke'       : 'green',
+            'stroke-width' : 2
+        }
     });
 
     var leftGrid = new Ext.grid.GridPanel({
-        ddGroup          : 'rightGridDDGroup',
-        store            : new Ext.data.JsonStore({
+        ddGroup : 'rightGridDDGroup',
+        store   : new Ext.data.JsonStore({
             fields : fields,
             data   : books,
             root   : 'records'
         }),
-        columns          : [
-            {header: "Title",  width : 120, sortable: true, dataIndex: 'title'},
-            {header: "Author(s)", width : 280, sortable: true, dataIndex: 'author'}
-        ],
-        enableDragDrop   : true,
-        stripeRows       : true,
+        columns : [{
+            header    : "Title",
+            width     : 120,
+            sortable  : true,
+            dataIndex : 'title'
+        },{
+            header    : "Author(s)",
+            width     : 280,
+            sortable  : true,
+            dataIndex : 'author'
+        }],
+        enableDragDrop : true,
+        stripeRows     : true,
         viewConfig : {
             forceFit : true
         },
@@ -48,17 +58,24 @@ Ext.onReady(function(){
     });
 
     var rightGrid = new Ext.grid.GridPanel({
-        ddGroup          : 'leftGridDDGroup',
-        store            : new Ext.data.JsonStore({
+        ddGroup : 'leftGridDDGroup',
+        store   : new Ext.data.JsonStore({
             fields : fields,
             root   : 'records'
         }),
-        columns          : [
-            {header: "Title",  width : 120, sortable: true, dataIndex: 'title'},
-            {header: "Author(s)", width : 280, sortable: true, dataIndex: 'author'}
-        ],
-        enableDragDrop   : true,
-        stripeRows       : true,
+        columns : [{
+            header    : "Title",
+            width     : 120,
+            sortable  : true,
+            dataIndex : 'title'
+        },{
+            header    : "Author(s)",
+            width     : 280,
+            sortable  : true,
+            dataIndex : 'author'
+        }],
+        enableDragDrop : true,
+        stripeRows     : true,
         viewConfig : {
             forceFit : true
         },
@@ -66,18 +83,18 @@ Ext.onReady(function(){
     });
 
     new Ext.Panel({
-        renderTo     : Ext.getBody(),
-        title        : 'ExtJS Books',
-        width        : 800,
-        height       : 300,
-        layout       : {
-            type : 'hbox',
+        renderTo : Ext.getBody(),
+        title    : "ExtJS Books",
+        width    : 800,
+        height   : 300,
+        layout   : {
+            type  : 'hbox',
             align : 'stretch'
         },
-        defaults     : {
+        defaults : {
             flex : 1
         },
-        items        : [
+        items : [
             leftGrid,
             rightGrid
         ]
